@@ -10836,7 +10836,9 @@ form select {
   font-size: 26px;
 }
 
-
+.slider-section {
+  background-color: #f8f8f8;
+}
 
 .projects-section {
   padding: 10rem 0;

@@ -6,3 +6,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 <!-- Core theme JS-->
 <script src="js/progress.js?ver=1"></script>
+<script src="plugins/splide/dist/js/splide.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/progress.js?ver=1"></script>
