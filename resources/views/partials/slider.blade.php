@@ -47,6 +47,7 @@
                 <div id="card-slider" class="splide">
                     <div class="splide__track">
                           <ul class="splide__list">
+                            @include('partials.slider.slide7')
                             @include('partials.slider.slide1')
                             @include('partials.slider.slide2')
                             @include('partials.slider.slide3')
