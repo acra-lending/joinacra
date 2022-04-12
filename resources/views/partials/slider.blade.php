@@ -52,7 +52,6 @@
                             @include('partials.slider.slide2')
                             @include('partials.slider.slide3')
                             @include('partials.slider.slide4')
-                            @include('partials.slider.slide5')
                             @include('partials.slider.slide6')
                           </ul>
                     </div>
