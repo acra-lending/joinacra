@@ -49,7 +49,6 @@
                           <ul class="splide__list">
                             @include('partials.slider.slide7')
                             @include('partials.slider.slide1')
-                            @include('partials.slider.slide2')
                             @include('partials.slider.slide3')
                             @include('partials.slider.slide4')
                             @include('partials.slider.slide6')
