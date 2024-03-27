@@ -22,7 +22,7 @@
                 <a href="https://acralending.com/home-loans/" class="text-left text-white" style="text-decoration: none;" target="_blank">
                     Non-QM
                 </a><br>
-                <a href="https://acralending/new-broker/" class="text-left text-white" style="text-decoration: none;" target="_blank">
+                <a href="https://acralending.com/new-broker/" class="text-left text-white" style="text-decoration: none;" target="_blank">
                     Brokers
                 </a><br>
                 <a href="https://acracorrespondent.com/" class="text-left text-white" style="text-decoration: none;" target="_blank">

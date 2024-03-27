@@ -18,7 +18,7 @@ class FormController extends Controller
             'referral'      => 'nullable|max:100',
             'interested_in' => 'required',
             'attachment'    => 'nullable|mimes:pdf,doc,docx|max:99999',
-            recaptchaFieldName() => recaptchaRuleName()
+            //recaptchaFieldName() => recaptchaRuleName()
         ]);
 
         $data = $request->all();
@@ -49,8 +49,9 @@ class FormController extends Controller
         // if($request->filled('email4')) {
         //     array_push($emails, $request->email4);
         // }
+        //dd($mail);
         Mail::to(['webupdates@acralending.com', 'human_resources@acralending.com'])
-        ->send($mail);
+        ->send($mail); 
 
         return response()->json(['success' => 'Sent Successfully. Someone will be in contact with you shortly.']);
 
