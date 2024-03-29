@@ -34,7 +34,14 @@
                 <div class="box p-4">
                     <div class="mx-auto text-left">
                         {{ Form::open(['action' => 'App\Http\Controllers\FormController@submit', 'method' => 'POST', 'enctype' => 'multipart/form-data']) }}
-                            <div class="container">
+                        @if(count($errors) > 0)
+                            @foreach($errors->all() as $error)
+                                <div class="alert alert-light bg-danger">
+                                    {{ $error }}
+                                </div>
+                            @endforeach
+                        @endif
+                        <div class="container">
                             <h2 class="py-2 text-center font-weight-bold" style="color: var(--primary-color);">Get More Information</h2>
                             
                                 <div class="col-sm-12">
@@ -45,6 +52,9 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <input id="phone" maxlength="40" name="phone_number" size="20" type="text" placeholder="Phone" required />
+                                @if($errors->has('message'))
+                                <div class="error">{{message}}</div>
+                                @endif
                                 </div>
                                 <div class="col-sm-12">
                                     <input id="email" maxlength="80" name="email" size="20" type="email" placeholder="Email" required />
