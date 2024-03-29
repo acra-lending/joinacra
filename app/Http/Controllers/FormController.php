@@ -14,7 +14,7 @@ class FormController extends Controller
             'first_name'    => 'required|max:100',
             'last_name'     => 'required|max:100',
             'email'         => 'required|email',
-            'phone_number'  => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'phone_number'  => 'required',
             'referral'      => 'nullable|max:100',
             'interested_in' => 'required',
             'attachment'    => 'nullable|mimes:pdf,doc,docx|max:99999',
@@ -22,10 +22,10 @@ class FormController extends Controller
         ]);
 
         $data = $request->all();
-        // dd($data);
+        
 
         $mail = new FormSubmit($data);
-        // dd($mail);
+      
         $file = $request->file('attachment');
 
         if($request->hasFile('attachment')){
