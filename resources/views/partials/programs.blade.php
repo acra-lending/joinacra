@@ -33,15 +33,11 @@
             <div class="col-lg-6 col-md-6 col-sm-12" id="form">
                 <div class="box p-4">
                     <div class="mx-auto text-left">
+                    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
                         {{ Form::open(['action' => 'App\Http\Controllers\FormController@submit', 'method' => 'POST', 'enctype' => 'multipart/form-data']) }}
-                        @if(count($errors) > 0)
-                            @foreach($errors->all() as $error)
-                                <div class="alert alert-light bg-danger">
-                                    {{ $error }}
-                                </div>
-                            @endforeach
-                        @endif
-                        <div class="container">
+                            <div class="container">
                             <h2 class="py-2 text-center font-weight-bold" style="color: var(--primary-color);">Get More Information</h2>
                             
                                 <div class="col-sm-12">
@@ -51,13 +47,11 @@
                                     <input id="last_name" maxlength="80" name="last_name" size="20" type="text" placeholder="Last Name" required />
                                 </div>
                                 <div class="col-sm-12">
-                                    <input id="phone" maxlength="40" name="phone_number" size="20" type="text" placeholder="Phone" required />
-                                @if($errors->has('message'))
-                                <div class="error">{{message}}</div>
-                                @endif
+                                    <input id="phone_number" maxlength="40" name="phone_number" size="20" type="text" placeholder="Phone" required />
+                                    <label id="phone-error" class="text-danger position-absolute mt-1" style="line-height:2px; font-size:10px"></label>
                                 </div>
                                 <div class="col-sm-12">
-                                    <input id="email" maxlength="80" name="email" size="20" type="email" placeholder="Email" required />
+                                    <input id="email" maxlength="80" name="email" size="20" type="email" placeholder="Email" style="margin-top: 15px;" required />
                                 </div>
                                 <div class="col-sm-12">
                                     <input id="referral" maxlength="80" name="referral" size="20" type="text" placeholder="Referred by" />
@@ -109,4 +103,34 @@
   var file = $('#file-upload')[0].files[0].name;
   $(this).prev('label').text(file);
 });
-</script>
+
+// Validate phone number function
+const phoneNumber = document.getElementById("phone_number");
+          let flag=false;;
+          phoneNumber.addEventListener('input', function(event){
+            let number = this.value;
+            if(flag){
+                    this.value = '';
+                    flag=false;
+           }
+            if(this.value.length<11){
+            document.getElementById('phone-error').innerHTML = "";  
+            this.value = this.value.replace(/[^0-9]/g, '');
+            }else{
+                this.value = this.value.substr(0,10);
+            }
+          })
+          phoneNumber.addEventListener('blur',function(event){
+                let number = this.value;
+                if(number.length===10){
+                    var formattedNumber = '('+
+                    number.substr(0,3)+ ') ' +
+                    number.substr(3,3)+'-' +
+                    number.substr(6);
+                    this.value = formattedNumber;
+                    flag = true;
+                }else if(number.length < 10){
+                  document.getElementById('phone-error').innerHTML = "Please enter a valid phone number.";  
+                }
+            });
+</script> 
