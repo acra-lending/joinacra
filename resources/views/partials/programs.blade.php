@@ -33,18 +33,14 @@
             <div class="col-lg-6 col-md-6 col-sm-12" id="form">
                 <div class="box p-4">
                     <div class="mx-auto text-left">
-                    @if(session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}</div>
-                    @endif
-                        {{ Form::open(['action' => 'App\Http\Controllers\FormController@submit', 'method' => 'POST', 'enctype' => 'multipart/form-data']) }}
+                   {{ Form::open(['action' => 'App\Http\Controllers\FormController@submit', 'method' => 'POST', 'enctype' => 'multipart/form-data']) }}
                         @if(count($errors) > 0)
                             @foreach($errors->all() as $error)
                                 <div class="alert alert-light bg-danger">
                                     {{ $error }}
                                 </div>
                             @endforeach
-                        @endif  
+                        @endif 
                             <div class="container">
                             <h2 class="py-2 text-center font-weight-bold" style="color: var(--primary-color);">Get More Information</h2>
                             
